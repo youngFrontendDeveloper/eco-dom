@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ecodom/projects",
+  "title": "Наши проекты",
+  "category": "ecodom",
+  "icon": "admin-home",
+  "description": "Слайдер карточек из записей «Проекты домов» и кнопка «Смотреть все проекты».",
+  "attributes": {
+    "heading": { "type": "string", "default": "Наши проекты" },
+    "count": { "type": "number", "default": 9 },
+    "btnText": { "type": "string", "default": "Смотреть все проекты" },
+    "btnUrl": { "type": "string", "default": "" }
+  },
+  "supports": { "align": ["full"], "html": false },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

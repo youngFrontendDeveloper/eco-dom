@@ -1,0 +1,290 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/progress/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+.progress__stage {
+  height: 905px;
+  overflow: hidden;
+}
+.progress__heading {
+  position: absolute;
+  top: 53px;
+  right: 0;
+  left: 0;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 0.985;
+  text-align: center;
+}
+.progress__tabs {
+  position: absolute;
+  top: 339px;
+  right: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.progress__tab {
+  box-sizing: border-box;
+  padding: 12px 0;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  font: 500 14px/1.13 var(--wp--preset--font-family--golos);
+  text-align: right;
+  white-space: nowrap;
+  color: #1f252d;
+  opacity: 0.75;
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s, color 0.2s;
+}
+.progress__tab:hover {
+  opacity: 1;
+}
+.progress__tab.is-active {
+  padding: 12px;
+  background: #1f252d;
+  font-size: 16px;
+  color: #fff;
+  opacity: 1;
+}
+.progress__panel {
+  display: contents;
+}
+.progress__panel[hidden] {
+  display: none;
+}
+.progress__panel:not([hidden]) > * {
+  animation: progress-fade 0.4s ease both;
+}
+.progress__card {
+  position: absolute;
+  top: 200px;
+  right: 226px;
+  width: 983px;
+  height: 519px;
+}
+.progress__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: #e8e8e8;
+  overflow: hidden;
+  cursor: default;
+}
+.progress__media[data-video] {
+  cursor: pointer;
+}
+.progress__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.progress__next {
+  position: absolute;
+  top: 38px;
+  right: 869px;
+  width: 845px;
+  height: 443px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.progress__play {
+  position: absolute;
+  top: calc(50% - 32px);
+  right: calc(50% - 50px);
+  width: 83px;
+  height: 91px;
+  max-width: none;
+  transition: transform 0.2s;
+}
+.progress__media[data-video]:hover .progress__play {
+  transform: scale(1.08);
+}
+
+.step {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-family: var(--wp--preset--font-family--golos);
+  white-space: nowrap;
+  color: #1f252d;
+}
+.step--1 {
+  top: 775px;
+  right: 672px;
+}
+.step--2 {
+  top: 775px;
+  right: 373px;
+}
+.step--3 {
+  top: 143px;
+  right: 672px;
+}
+.step--4 {
+  top: 143px;
+  right: 295px;
+}
+.step__n {
+  font-size: 12px;
+  line-height: 1;
+  opacity: 0.6;
+}
+.step__label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.step__arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.steps-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+@keyframes progress-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress__panel > * {
+    animation: none !important;
+  }
+}
+@media (max-width: 1399px) {
+  .progress__stage {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-areas: "title title" "tabs content";
+    gap: 48px 40px;
+    height: auto;
+    padding: 53px var(--eco-gutter) 72px;
+  }
+  .progress__heading {
+    position: static;
+    grid-area: title;
+  }
+  .progress__tabs {
+    position: static;
+    grid-area: tabs;
+    align-self: start;
+  }
+  .progress__panel:not([hidden]) {
+    display: block;
+    grid-area: content;
+  }
+  .progress__card {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 983/519;
+  }
+  .progress__next {
+    display: none;
+  }
+  .step {
+    display: none;
+  }
+}
+@media (max-width: 1399px) {
+  .progress__heading {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+  .progress__tabs {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+  .progress__panel:not([hidden]) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+  }
+}
+@media (max-width: 781px) {
+  .progress__stage {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "tabs" "content";
+    gap: 24px;
+    padding: 40px 0 56px;
+  }
+  .progress__heading {
+    padding: 0 var(--eco-gutter);
+    font-size: 26px;
+  }
+  .progress__tabs {
+    flex-direction: row;
+    gap: 12px;
+    padding: 0 var(--eco-gutter);
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .progress__tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .progress__tab, .progress__tab.is-active {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 170px;
+    height: 56px;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 15px;
+    text-align: center;
+    scroll-snap-align: start;
+    opacity: 1;
+  }
+  .progress__tab {
+    background: #fff;
+    color: #1f252d;
+  }
+  .progress__tab.is-active {
+    background: #1f252d;
+    color: #fff;
+  }
+  .progress__panel:not([hidden]) {
+    margin: 0 var(--eco-gutter);
+    padding: 12px;
+    border-radius: 12px;
+    background: #fff;
+  }
+  .progress__card {
+    aspect-ratio: 4/3;
+  }
+  .progress__media {
+    border-radius: 6px;
+  }
+  .progress__heading {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+  .progress__tabs {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+  .progress__panel:not([hidden]) {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+  }
+}

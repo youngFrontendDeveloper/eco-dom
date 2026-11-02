@@ -1,0 +1,132 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/advantages/style.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+.advantages__stage {
+  height: 554px;
+}
+.advantages__heading {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 0.985;
+  text-align: center;
+  white-space: nowrap;
+}
+.advantages__list {
+  position: absolute;
+  top: 137px;
+  left: 138px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.advantages__item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.advantages__icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(2, 2, 2, 0.25);
+  border-radius: 55px;
+  filter: drop-shadow(0 4px 4.5px rgba(0, 0, 0, 0.1)) drop-shadow(-1px 16px 8px rgba(0, 0, 0, 0.09));
+}
+.advantages__icon img {
+  display: block;
+}
+.advantages__text {
+  width: 455px;
+  font-family: var(--wp--preset--font-family--inter);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  text-shadow: var(--eco-shadow-text);
+}
+.advantages__image {
+  position: absolute;
+  top: 93px;
+  left: 544px;
+  width: 821px;
+  height: 546px;
+  object-fit: cover;
+}
+
+@media (max-width: 1400px) {
+  .advantages__stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 32px 48px;
+    height: auto;
+    padding: 64px var(--eco-gutter);
+  }
+  .advantages__heading {
+    position: static;
+    grid-column: 1/-1;
+    transform: none;
+    white-space: normal;
+  }
+  .advantages__list, .advantages__image {
+    position: static;
+  }
+  .advantages__text {
+    width: auto;
+  }
+  .advantages__image {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 781px) {
+  .advantages__stage {
+    grid-template-columns: 1fr;
+    padding: 48px var(--eco-gutter);
+  }
+}
+@media (max-width: 480px) {
+  .advantages__stage {
+    gap: 24px;
+    padding: 40px var(--eco-gutter);
+  }
+  .advantages__heading {
+    font-size: 24px;
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+  .advantages__list {
+    gap: 16px;
+  }
+  .advantages__item {
+    gap: 14px;
+  }
+  .advantages__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 40px;
+  }
+  .advantages__icon img {
+    width: 22px;
+    height: 22px;
+  }
+  .advantages__text {
+    min-width: 0;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

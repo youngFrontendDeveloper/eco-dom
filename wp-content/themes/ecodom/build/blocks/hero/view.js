@@ -1,0 +1,20 @@
+/******/ (() => { // webpackBootstrap
+/*!*********************************!*\
+  !*** ./src/blocks/hero/view.js ***!
+  \*********************************/
+// Плавный скролл по якорю бейджа «Скролл».
+document.querySelectorAll('.hero .scroll-badge[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) {
+      return;
+    }
+    e.preventDefault();
+    target.scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+/******/ })()
+;
+//# sourceMappingURL=view.js.map

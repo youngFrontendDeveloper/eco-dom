@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ecodom/hero",
+  "title": "Hero",
+  "category": "ecodom",
+  "icon": "format-image",
+  "description": "Первый экран: фон, заголовок, подзаголовок, кнопка и бейдж «Скролл».",
+  "attributes": {
+    "eyebrow": { "type": "string", "default": "Свобода. Доступность. Уникальность" },
+    "title": { "type": "string", "default": "Построй дом<br>своей мечты" },
+    "subtitle": { "type": "string", "default": "Мы построим тот дом, о котором вы мечтаете" },
+    "btnText": { "type": "string", "default": "Построй свой дом" },
+    "btnUrl": { "type": "string", "default": "#calculator" },
+    "scrollUrl": { "type": "string", "default": "#about" },
+    "imageId": { "type": "number" },
+    "imageUrl": { "type": "string" }
+  },
+  "supports": { "align": ["full"], "html": false },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

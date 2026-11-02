@@ -1,0 +1,102 @@
+.hero {
+    position: relative;
+    box-sizing: border-box;
+    min-height: 800px;
+    padding: 269px 0 0 max(138px, calc(50% - 562px)); // макет 1400px: надпись y=269, x=138 от края контейнера
+    overflow: hidden;
+    color: var(--wp--preset--color--white);
+    background: var(--wp--preset--color--darker) center / cover no-repeat;
+
+    // вертикальные линии сетки макета (x = 138 / 512 / 886 / 1261 из 1400)
+    &__line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.05);
+
+        &:nth-of-type(1) { left: max(9.857%, calc(50% - 562px)); }
+        &:nth-of-type(2) { left: max(36.571%, calc(50% - 188px)); }
+        &:nth-of-type(3) { left: min(63.286%, calc(50% + 186px)); }
+        &:nth-of-type(4) { left: min(90.071%, calc(50% + 561px)); }
+    }
+
+    &__inner {
+        position: relative;
+    }
+
+    &__eyebrow {
+        margin: 0 0 4px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-shadow: var(--eco-shadow-text);
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 72px;
+        font-weight: 700;
+        line-height: 1.13;
+    }
+
+    &__subtitle {
+        margin: 12px 0 0;
+        font-size: 20px;
+        line-height: 1.13;
+        text-shadow: var(--eco-shadow-text);
+    }
+
+    .btn {
+        margin-top: 32px;
+    }
+}
+
+// Бейдж «Скролл»: вращающееся кольцо текста + стрелка вниз
+.scroll-badge {
+    position: absolute;
+    right: max(138px, calc(50% - 562px));
+    bottom: 22px;
+    width: 227px;
+    height: 227px;
+    color: inherit;
+
+    &__ring {
+        display: block;
+        animation: scroll-badge-spin 24s linear infinite reverse;
+
+        text {
+            fill: currentColor;
+            font-size: 12px;
+            letter-spacing: 0.04em;
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 74px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-badge-spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-badge__ring { animation: none; }
+}
+
+@media (max-width: 1100px) {
+    .hero {
+        padding-left: var(--eco-gutter);
+        padding-top: 180px;
+
+        &__title { font-size: 48px; }
+    }
+
+    .scroll-badge { right: var(--eco-gutter); width: 140px; height: 140px; }
+    .scroll-badge__ring { width: 140px; height: 140px; }
+    .scroll-badge__arrow { top: 46px; height: 48px; width: auto; }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ecodom/houses",
+  "title": "Мы строим (Дома / Гаражи / Бани)",
+  "category": "ecodom",
+  "icon": "admin-multisite",
+  "description": "Светлая секция с иконками-вкладками: заголовок, подзаголовок, два абзаца и фото с видео.",
+  "attributes": {
+    "tabs": {
+      "type": "array",
+      "default": [
+        {
+          "icon": "house",
+          "label": "Дома",
+          "heading": "Мы строим загородные дома",
+          "subheading": "любой архитектуры",
+          "text1": "Мы беремся за самые сложные работы, для того, чтобы построить дом вашей мечты",
+          "text2": "Мы под ваш бюджет построим: Дом, баню и так далее",
+          "imageId": 0,
+          "imageUrl": "",
+          "videoUrl": ""
+        },
+        {
+          "icon": "garage",
+          "label": "Гаражи",
+          "heading": "Мы строим надёжные гаражи",
+          "subheading": "под любые задачи",
+          "text1": "Замените этот текст описанием: какие гаражи вы строите, из каких материалов и в какие сроки.",
+          "text2": "Построим гараж на одну или несколько машин под ваш бюджет.",
+          "imageId": 0,
+          "imageUrl": "",
+          "videoUrl": ""
+        },
+        {
+          "icon": "sauna",
+          "label": "Бани",
+          "heading": "Мы строим уютные бани",
+          "subheading": "для отдыха всей семьи",
+          "text1": "Замените этот текст описанием: какие бани вы строите, из каких материалов и в какие сроки.",
+          "text2": "Построим баню под ключ, от фундамента до отделки парной.",
+          "imageId": 0,
+          "imageUrl": "",
+          "videoUrl": ""
+        }
+      ]
+    }
+  },
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

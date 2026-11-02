@@ -1,0 +1,242 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ecodom/calculator",
+  "title": "Калькулятор стоимости",
+  "category": "ecodom",
+  "icon": "calculator",
+  "description": "Квиз из 7 шагов и форма заявки. Заявки сохраняются в разделе «Заявки» и уходят на почту администратора.",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Пройдите бесплатный тест-калькулятор и"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Получите предварительный расчет стоимости дома за 1 минуту"
+    },
+    "steps": {
+      "type": "array",
+      "default": [
+        {
+          "question": "Какой дом вы хотите построить?",
+          "layout": "cards3",
+          "multiple": false,
+          "options": [
+            {
+              "label": "Дом из блоков",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Каркасный дом",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Кирпичный дом",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Дом из профилированного бруса",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Дом из цилиндрованного бруса",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Дом из SIP-панелей",
+              "imageId": 0,
+              "imageUrl": ""
+            }
+          ]
+        },
+        {
+          "question": "Сколько этажей вам нужно?",
+          "layout": "tiles",
+          "multiple": false,
+          "options": [
+            {
+              "label": "1 этаж"
+            },
+            {
+              "label": "1 этаж + мансарда"
+            },
+            {
+              "label": "2 этажа"
+            },
+            {
+              "label": "2 этажа + мансарда"
+            },
+            {
+              "label": "3 этажа"
+            },
+            {
+              "label": "Еще не определились"
+            }
+          ]
+        },
+        {
+          "question": "Есть ли у вас участок?",
+          "layout": "tiles",
+          "multiple": false,
+          "options": [
+            {
+              "label": "Участок есть, в черте города"
+            },
+            {
+              "label": "Участок есть за городом далее 100 км"
+            },
+            {
+              "label": "Участок есть за городом до 100 км"
+            },
+            {
+              "label": "Участка нет"
+            }
+          ]
+        },
+        {
+          "question": "Выберите желаемые размеры дома",
+          "layout": "tiles",
+          "multiple": false,
+          "options": [
+            {
+              "label": "Дом до 100 кв.м"
+            },
+            {
+              "label": "До 100-150 кв.м"
+            },
+            {
+              "label": "До 150-200 кв.м"
+            },
+            {
+              "label": "Более 200 кв.м."
+            }
+          ]
+        },
+        {
+          "question": "Когда планируете строительство?",
+          "layout": "tiles",
+          "multiple": false,
+          "options": [
+            {
+              "label": "В ближайшее время"
+            },
+            {
+              "label": "В этом году"
+            },
+            {
+              "label": "В следующем году"
+            },
+            {
+              "label": "Еще не определились"
+            }
+          ]
+        },
+        {
+          "question": "Какой стиль ближе?",
+          "layout": "cards4",
+          "multiple": false,
+          "options": [
+            {
+              "label": "Шале",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Финская классика",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Райт",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Модерн",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Баухаус",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Американский стиль",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Фахверк",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Классический стиль",
+              "imageId": 0,
+              "imageUrl": ""
+            }
+          ]
+        },
+        {
+          "question": "Нужны ли дополнительные строения на участке?",
+          "layout": "cards3tall",
+          "multiple": true,
+          "options": [
+            {
+              "label": "Гараж",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Сауна",
+              "imageId": 0,
+              "imageUrl": ""
+            },
+            {
+              "label": "Баня",
+              "imageId": 0,
+              "imageUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    "nextText": {
+      "type": "string",
+      "default": "Далее"
+    },
+    "finalTitle": {
+      "type": "string",
+      "default": "Мы получили данные и приступаем к расчетам"
+    },
+    "finalHint": {
+      "type": "string",
+      "default": "Укажите куда выслать расчет стоимости?"
+    },
+    "submitText": {
+      "type": "string",
+      "default": "Оставить заявку"
+    },
+    "consent": {
+      "type": "string",
+      "default": "Нажимая на кнопку, вы соглашаетесь с условиями политики конфиденциальности"
+    }
+  },
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

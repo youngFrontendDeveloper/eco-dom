@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ecodom/progress",
+  "title": "Ход строительства",
+  "category": "ecodom",
+  "icon": "hammer",
+  "description": "Вкладки этапов строительства: на десктопе вертикальные слева, на мобильных горизонтальные. У вкладки своё фото, видео и подписи этапов.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Ход строительства"
+    },
+    "tabs": {
+      "type": "array",
+      "default": [
+        {
+          "label": "Фундамент",
+          "imageId": 0,
+          "imageUrl": "",
+          "videoUrl": "",
+          "steps": [
+            "Земельные работы",
+            "Армирование",
+            "Устройство опалубки",
+            "Заливка бетона"
+          ]
+        },
+        {
+          "label": "Сборка и Монтаж дома",
+          "imageId": 0,
+          "imageUrl": "",
+          "videoUrl": "",
+          "steps": []
+        },
+        {
+          "label": "Инженерные системы",
+          "imageId": 0,
+          "imageUrl": "",
+          "videoUrl": "",
+          "steps": []
+        },
+        {
+          "label": "Отделка",
+          "imageId": 0,
+          "imageUrl": "",
+          "videoUrl": "",
+          "steps": []
+        },
+        {
+          "label": "Отзыв клиента",
+          "imageId": 0,
+          "imageUrl": "",
+          "videoUrl": "",
+          "steps": []
+        }
+      ]
+    }
+  },
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

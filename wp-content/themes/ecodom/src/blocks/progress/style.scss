@@ -1,0 +1,246 @@
+// «Ход строительства». Три режима:
+//   ≥1400px   — макет 1400×905: вертикальные вкладки слева, подписи этапов со стрелками (абсолютные px);
+//   782–1399  — вертикальные вкладки слева, фото справа (сетка);
+//   ≤781px    — горизонтальные вкладки-«таблетки» над фото (как в Block 20–23 макета).
+.progress {
+    &__stage {
+        height: 905px;
+        overflow: hidden;
+    }
+
+    &__heading {
+        position: absolute;
+        top: 53px;
+        left: 0;
+        right: 0;
+        margin: 0;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 0.985;
+        text-align: center;
+    }
+
+    // ── вертикальные вкладки: x=52, y=339 ──
+    &__tabs {
+        position: absolute;
+        top: 339px;
+        left: 52px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    &__tab {
+        box-sizing: border-box;
+        padding: 12px 0;
+        border: 0;
+        border-radius: 12px;
+        background: none;
+        font: 500 14px/1.13 var(--wp--preset--font-family--golos);
+        text-align: left;
+        white-space: nowrap;
+        color: #1f252d;
+        opacity: 0.75;
+        cursor: pointer;
+        transition: opacity 0.2s, background 0.2s, color 0.2s;
+
+        &:hover { opacity: 1; }
+
+        // активная — тёмная «таблетка»
+        &.is-active {
+            padding: 12px;
+            background: #1f252d;
+            font-size: 16px;
+            color: #fff;
+            opacity: 1;
+        }
+    }
+
+    // панель не создаёт бокса: дочерние элементы позиционируются относительно .progress__stage
+    &__panel {
+        display: contents;
+
+        &[hidden] { display: none; }
+    }
+
+    &__panel:not([hidden]) > * {
+        animation: progress-fade 0.4s ease both;
+    }
+
+    // фото 983×519 в точке (226, 200); следующее фото выглядывает справа из-за него
+    &__card {
+        position: absolute;
+        top: 200px;
+        left: 226px;
+        width: 983px;
+        height: 519px;
+    }
+
+    &__media {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        padding: 0;
+        border: 0;
+        border-radius: 12px;
+        background: #e8e8e8;
+        overflow: hidden;
+        cursor: default;
+
+        &[data-video] { cursor: pointer; }
+    }
+
+    &__photo {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__next {
+        position: absolute;
+        top: 38px;
+        left: 869px;
+        width: 845px;
+        height: 443px;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    // центр кружка play (50, 32) внутри svg 83×91 совмещаем с центром фото
+    &__play {
+        position: absolute;
+        top: calc(50% - 32px);
+        left: calc(50% - 50px);
+        width: 83px;
+        height: 91px;
+        max-width: none;
+        transition: transform 0.2s;
+    }
+
+    &__media[data-video]:hover &__play { transform: scale(1.08); }
+}
+
+// подписи этапов: позиции из макета
+.step {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    font-family: var(--wp--preset--font-family--golos);
+    white-space: nowrap;
+    color: #1f252d;
+
+    &--1 { top: 775px; left: 672px; }
+    &--2 { top: 775px; left: 373px; }
+    &--3 { top: 143px; left: 672px; }
+    &--4 { top: 143px; left: 295px; }
+
+    &__n { font-size: 12px; line-height: 1; opacity: 0.6; }
+    &__label { font-size: 14px; font-weight: 500; line-height: 1.2; }
+
+    &__arrow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+}
+
+.steps-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+@keyframes progress-fade {
+    from { opacity: 0; transform: translateY(8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .progress__panel > * { animation: none !important; }
+}
+
+// 782–1399: вертикальные вкладки слева, фото справа
+@media (max-width: 1399px) {
+    .progress {
+        &__stage {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr);
+            grid-template-areas: 'title title' 'tabs content';
+            gap: 48px 40px;
+            height: auto;
+            padding: 53px var(--eco-gutter) 72px;
+        }
+
+        &__heading { position: static; grid-area: title; }
+        &__tabs { position: static; grid-area: tabs; align-self: start; }
+
+        &__panel:not([hidden]) {
+            display: block;
+            grid-area: content;
+        }
+
+        &__card { position: relative; top: auto; left: auto; width: 100%; height: auto; aspect-ratio: 983 / 519; }
+        &__next { display: none; }
+    }
+
+    .step { display: none; }
+}
+
+// ≤781: горизонтальные вкладки над фото
+@media (max-width: 781px) {
+    .progress {
+        &__stage {
+            grid-template-columns: minmax(0, 1fr);
+            grid-template-areas: 'title' 'tabs' 'content';
+            gap: 24px;
+            padding: 40px 0 56px;
+        }
+
+        &__heading { padding: 0 var(--eco-gutter); font-size: 26px; }
+
+        // ряд «таблеток» прокручивается по горизонтали
+        &__tabs {
+            flex-direction: row;
+            gap: 12px;
+            padding: 0 var(--eco-gutter);
+            overflow-x: auto;
+            scroll-snap-type: x proximity;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar { display: none; }
+        }
+
+        &__tab,
+        &__tab.is-active {
+            flex: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 170px;
+            height: 56px;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 15px;
+            text-align: center;
+            scroll-snap-align: start;
+            opacity: 1;
+        }
+
+        &__tab { background: #fff; color: #1f252d; }
+        &__tab.is-active { background: #1f252d; color: #fff; }
+
+        // фото в белой карточке
+        &__panel:not([hidden]) {
+            margin: 0 var(--eco-gutter);
+            padding: 12px;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        &__card { aspect-ratio: 4 / 3; }
+        &__media { border-radius: 6px; }
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ecodom/advantages",
+  "title": "Преимущества",
+  "category": "ecodom",
+  "icon": "yes-alt",
+  "description": "Светлая секция: заголовок, список преимуществ с иконками и изображение справа.",
+  "attributes": {
+    "heading": { "type": "string", "default": "Почему покупка дома - выгодней, чем покупка квартиры?" },
+    "items": {
+      "type": "array",
+      "default": [
+        { "icon": "project", "text": "Индивидуальный проект" },
+        { "icon": "price", "text": "Фиксированная стоимость строительства" },
+        { "icon": "house", "text": "Комплектация домов с коммуникациями" },
+        { "icon": "program", "text": "Государственные программы" },
+        { "icon": "guarantee", "text": "Гарантия на дом 5 лет, на кровлю 7 лет" }
+      ]
+    },
+    "imageId": { "type": "number" },
+    "imageUrl": { "type": "string" }
+  },
+  "supports": { "align": ["full"], "html": false },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

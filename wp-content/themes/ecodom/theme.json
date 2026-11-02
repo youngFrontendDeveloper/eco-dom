@@ -1,0 +1,223 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "1124px",
+      "wideSize": "1400px"
+    },
+    "color": {
+      "palette": [
+        {
+          "slug": "dark",
+          "name": "Тёмный фон",
+          "color": "#1e262f"
+        },
+        {
+          "slug": "darker",
+          "name": "Самый тёмный",
+          "color": "#181c1d"
+        },
+        {
+          "slug": "button",
+          "name": "Кнопка",
+          "color": "#25252c"
+        },
+        {
+          "slug": "white",
+          "name": "Белый",
+          "color": "#ffffff"
+        },
+        {
+          "slug": "white-80",
+          "name": "Белый 80%",
+          "color": "rgba(255,255,255,0.8)"
+        },
+        {
+          "slug": "line",
+          "name": "Линия сетки",
+          "color": "rgba(255,255,255,0.1)"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "slug": "golos",
+          "name": "Golos Text",
+          "fontFamily": "\"Golos Text\", system-ui, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Golos Text",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116",
+              "src": [
+                "file:./assets/fonts/golos-text-cyrillic-400-normal.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Golos Text",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC,U+2212",
+              "src": [
+                "file:./assets/fonts/golos-text-latin-400-normal.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Golos Text",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116",
+              "src": [
+                "file:./assets/fonts/golos-text-cyrillic-500-normal.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Golos Text",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC,U+2212",
+              "src": [
+                "file:./assets/fonts/golos-text-latin-500-normal.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Golos Text",
+              "fontWeight": "600",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116",
+              "src": [
+                "file:./assets/fonts/golos-text-cyrillic-600-normal.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Golos Text",
+              "fontWeight": "600",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC,U+2212",
+              "src": [
+                "file:./assets/fonts/golos-text-latin-600-normal.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Golos Text",
+              "fontWeight": "700",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116",
+              "src": [
+                "file:./assets/fonts/golos-text-cyrillic-700-normal.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Golos Text",
+              "fontWeight": "700",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC,U+2212",
+              "src": [
+                "file:./assets/fonts/golos-text-latin-700-normal.woff2"
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "inter",
+          "name": "Inter",
+          "fontFamily": "Inter, system-ui, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Inter",
+              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116",
+              "src": [
+                "file:./assets/fonts/inter-cyrillic-300-normal.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Inter",
+              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC,U+2212",
+              "src": [
+                "file:./assets/fonts/inter-latin-300-normal.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Inter",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116",
+              "src": [
+                "file:./assets/fonts/inter-cyrillic-400-normal.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Inter",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC,U+2212",
+              "src": [
+                "file:./assets/fonts/inter-latin-400-normal.woff2"
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "oranienbaum",
+          "name": "Oranienbaum",
+          "fontFamily": "Oranienbaum, Georgia, serif",
+          "fontFace": [
+            {
+              "fontFamily": "Oranienbaum",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116",
+              "src": [
+                "file:./assets/fonts/oranienbaum-cyrillic-400-normal.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Oranienbaum",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC,U+2212",
+              "src": [
+                "file:./assets/fonts/oranienbaum-latin-400-normal.woff2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--white)",
+      "text": "var(--wp--preset--color--dark)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--golos)",
+      "lineHeight": "1.3"
+    },
+    "spacing": {
+      "blockGap": "0"
+    }
+  }
+}
