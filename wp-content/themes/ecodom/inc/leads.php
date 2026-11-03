@@ -47,9 +47,15 @@ function ecodom_handle_lead(): void
     $phone = sanitize_text_field(wp_unslash($_POST['phone'] ?? ''));
     $email = sanitize_email(wp_unslash($_POST['email'] ?? ''));
     $messenger = sanitize_text_field(wp_unslash($_POST['messenger'] ?? ''));
+    $consent = isset($_POST['consent']) && is_string($_POST['consent'])
+        ? sanitize_text_field(wp_unslash($_POST['consent']))
+        : '';
 
     if ('' === $name || strlen(preg_replace('/\D/', '', $phone)) < 10) {
         wp_send_json_error(['message' => 'Укажите имя и телефон.'], 422);
+    }
+    if ('1' !== $consent) {
+        wp_send_json_error(['message' => 'Подтвердите согласие на обработку персональных данных.'], 422);
     }
 
     // ответы калькулятора: answers[шаг][] = вариант, questions[шаг] = текст вопроса
@@ -67,6 +73,7 @@ function ecodom_handle_lead(): void
     $contacts = array_filter([
         'Имя: ' . $name,
         'Телефон: ' . $phone,
+        'Согласие на обработку персональных данных: да',
         $email ? 'E-mail: ' . $email : '',
         $messenger ? 'Куда выслать расчёт: ' . $messenger : '',
     ]);

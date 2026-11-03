@@ -80,6 +80,11 @@ document.querySelectorAll('.calc__panel').forEach((form) => {
             form.elements.phone.focus();
             return;
         }
+        if (!form.elements.consent.checked) {
+            fail('Подтвердите согласие на обработку персональных данных.');
+            form.elements.consent.focus();
+            return;
+        }
 
         const data = new FormData(form);
         data.append('action', 'ecodom_lead');

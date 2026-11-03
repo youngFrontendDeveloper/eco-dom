@@ -88,8 +88,7 @@
     "nextText": { "type": "string", "default": "Далее" },
     "finalTitle": { "type": "string", "default": "Мы получили данные и приступаем к расчетам" },
     "finalHint": { "type": "string", "default": "Укажите куда выслать расчет стоимости?" },
-    "submitText": { "type": "string", "default": "Оставить заявку" },
-    "consent": { "type": "string", "default": "Нажимая на кнопку, вы соглашаетесь с условиями политики конфиденциальности" }
+    "submitText": { "type": "string", "default": "Оставить заявку" }
   },
   "supports": { "align": ["full"], "html": false },
   "editorScript": "file:./index.js",

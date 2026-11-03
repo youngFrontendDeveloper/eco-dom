@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, TextareaControl, Button } from '@wordpress/components';
+import { PanelBody, TextControl, Button } from '@wordpress/components';
 import ImageField from '../../components/ImageField';
 import house1 from '../../../assets/img/calculator/house-1.webp';
 import house2 from '../../../assets/img/calculator/house-2.webp';
@@ -25,7 +25,7 @@ const CheckIcon = () => (
  * в адресной строке (~10 КБ) превышают лимит Apache (8190 байт) и запрос падал.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { eyebrow, heading, steps, nextText, finalTitle, finalHint, submitText, consent } = attributes;
+    const { eyebrow, heading, steps, nextText, finalTitle, finalHint, submitText } = attributes;
     const total = steps.length;
     const [active, setActive] = useState(0); // 0..total-1 — шаги, total — форма
     const isForm = active >= total;
@@ -78,7 +78,6 @@ export default function Edit({ attributes, setAttributes }) {
                     <TextControl label={__('Заголовок', 'ecodom')} value={finalTitle} onChange={(v) => setAttributes({ finalTitle: v })} />
                     <TextControl label={__('Подсказка про мессенджер', 'ecodom')} value={finalHint} onChange={(v) => setAttributes({ finalHint: v })} />
                     <TextControl label={__('Текст кнопки', 'ecodom')} value={submitText} onChange={(v) => setAttributes({ submitText: v })} />
-                    <TextareaControl label={__('Согласие', 'ecodom')} value={consent} onChange={(v) => setAttributes({ consent: v })} />
                     <p className="components-base-control__help">
                         {__('Заявки приходят на почту администратора и сохраняются в разделе «Заявки».', 'ecodom')}
                     </p>
@@ -140,8 +139,16 @@ export default function Edit({ attributes, setAttributes }) {
                                         <span key={label} className="calc__field"><span>{label}</span><input type="text" disabled /></span>
                                     ))}
                                 </div>
+                                <label className="calc__consent">
+                                    <input className="calc__consent-input" type="checkbox" disabled />
+                                    <span>
+                                        Я даю согласие на обработку моих персональных данных в целях оформления и исполнения заказа, а также подтверждаю, что ознакомился(ась) с
+                                        {' '}<a href="/privacy-policy">Политикой конфиденциальности</a>
+                                        {' '}и{' '}
+                                        <a href="/user-agreement">Пользовательским соглашением</a>
+                                    </span>
+                                </label>
                                 <span className="calc__submit">{submitText}</span>
-                                <p className="calc__consent">{consent}</p>
                             </div>
                         )}
 

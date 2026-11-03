@@ -95,11 +95,19 @@ $messengers = [
                     <input class="calc__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
                 </div>
 
+                <label class="calc__consent">
+                    <input class="calc__consent-input" type="checkbox" name="consent" value="1" required>
+                    <span>
+                        Я даю согласие на обработку моих персональных данных в целях оформления и исполнения заказа, а также подтверждаю, что ознакомился(ась) с
+                        <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a>
+                        и
+                        <a href="/user-agreement" target="_blank" rel="noopener noreferrer">Пользовательским соглашением</a>
+                    </span>
+                </label>
                 <button type="submit" class="calc__submit">
                     <img src="<?= esc_url(get_theme_file_uri('assets/img/arrow-right-dark.svg')) ?>" alt="" width="21" height="21">
                     <span><?= esc_html($attributes['submitText']) ?></span>
                 </button>
-                <p class="calc__consent"><?= esc_html($attributes['consent']) ?></p>
                 <p class="calc__error" role="alert" hidden></p>
             </div>
 
