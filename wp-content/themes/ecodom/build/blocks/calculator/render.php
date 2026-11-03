@@ -91,7 +91,6 @@ $messengers = [
                 <div class="calc__fields">
                     <label class="calc__field"><span>Ваше имя</span><input type="text" name="name" autocomplete="name" required></label>
                     <label class="calc__field"><span>Телефон</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" required></label>
-                    <label class="calc__field"><span>Электронная почта (не обязательно)</span><input type="email" name="email" autocomplete="email"></label>
                     <input class="calc__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
                 </div>
 

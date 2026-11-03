@@ -135,7 +135,7 @@ export default function Edit({ attributes, setAttributes }) {
                                     ))}
                                 </div>
                                 <div className="calc__fields">
-                                    {['Ваше имя', 'Телефон', 'Электронная почта (не обязательно)'].map((label) => (
+                                    {['Ваше имя', 'Телефон'].map((label) => (
                                         <span key={label} className="calc__field"><span>{label}</span><input type="text" disabled /></span>
                                     ))}
                                 </div>
