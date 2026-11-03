@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Блок ecodom/calculator — квиз из шагов + форма заявки.
  * Переключением шагов и отправкой управляет view.js.
@@ -45,28 +44,26 @@ $messengers = [
                 $layout = $step['layout'] ?? 'tiles';
                 $multiple = !empty($step['multiple']);
                 $type = $multiple ? 'checkbox' : 'radio';
-            ?>
-                <fieldset class="calc__step calc__step--<?= esc_attr($layout) ?>" data-step="<?= (int) $si ?>" <?= 0 === $si ? '' : ' hidden' ?>>
+                ?>
+                <fieldset class="calc__step calc__step--<?= esc_attr($layout) ?>" data-step="<?= (int) $si ?>"<?= 0 === $si ? '' : ' hidden' ?>>
                     <legend class="calc__question"><?= esc_html($step['question'] ?? '') ?></legend>
                     <input type="hidden" name="questions[<?= (int) $si ?>]" value="<?= esc_attr($step['question'] ?? '') ?>">
                     <div class="calc__options">
                         <?php foreach ((array) ($step['options'] ?? []) as $oi => $option) :
                             $label = $option['label'] ?? '';
                             $img = ecodom_media_url($option, $default_image((int) $si, (int) $oi));
-                        ?>
+                            ?>
                             <label class="calc__option">
                                 <input class="calc__input" type="<?= esc_attr($type) ?>" name="answers[<?= (int) $si ?>][]" value="<?= esc_attr($label) ?>">
                                 <?php if ('tiles' === $layout) : ?>
                                     <span class="calc__tile">
-                                        <span class="calc__check"><?= $check // phpcs:ignore WordPress.Security.EscapeOutput 
-                                                                    ?></span>
+                                        <span class="calc__check"><?= $check // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
                                         <span class="calc__label"><?= esc_html($label) ?></span>
                                     </span>
                                 <?php else : ?>
                                     <span class="calc__card">
-                                        <span class="calc__img" <?= $img ? ' style="background-image:url(' . esc_url($img) . ')"' : '' ?>></span>
-                                        <span class="calc__check"><?= $check // phpcs:ignore WordPress.Security.EscapeOutput 
-                                                                    ?></span>
+                                        <span class="calc__img"<?= $img ? ' style="background-image:url(' . esc_url($img) . ')"' : '' ?>></span>
+                                        <span class="calc__check"><?= $check // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
                                         <span class="calc__label"><?= esc_html($label) ?></span>
                                     </span>
                                 <?php endif; ?>
@@ -85,8 +82,7 @@ $messengers = [
                     <?php foreach ($messengers as $name => $path) : ?>
                         <label class="calc__messenger">
                             <input class="calc__input" type="radio" name="messenger" value="<?= esc_attr($name) ?>">
-                            <span class="calc__messenger-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><?= $path // phpcs:ignore WordPress.Security.EscapeOutput 
-                                                                                                                                    ?></svg></span>
+                            <span class="calc__messenger-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><?= $path // phpcs:ignore WordPress.Security.EscapeOutput ?></svg></span>
                             <span class="calc__messenger-name"><?= esc_html($name) ?></span>
                         </label>
                     <?php endforeach; ?>
@@ -115,16 +111,12 @@ $messengers = [
 
             <div class="calc__bar">
                 <span class="calc__progress"><span class="calc__progress-fill" style="width:<?= $total ? round(100 / ($total ?: 1), 2) : 0 ?>%"></span></span>
-                <div class="calc__buttons-block">
-                    <span class="calc__counter"><b class="calc__current">01</b><i>/</i><span class="calc__total"><?= esc_html($pad($total)) ?></span></span>
-                    <div>
-                        <button type="button" class="calc__back" hidden><?= esc_html__('Назад', 'ecodom') ?></button>
-                        <button type="button" class="calc__next" disabled>
-                            <span><?= esc_html($attributes['nextText']) ?></span>
-                            <img src="<?= esc_url(get_theme_file_uri('assets/img/arrow-right-dark.svg')) ?>" alt="" width="21" height="21">
-                        </button>
-                    </div>
-                </div>
+                <span class="calc__counter"><b class="calc__current">01</b><i>/</i><span class="calc__total"><?= esc_html($pad($total)) ?></span></span>
+                <button type="button" class="calc__back" hidden><?= esc_html__('Назад', 'ecodom') ?></button>
+                <button type="button" class="calc__next" disabled>
+                    <span><?= esc_html($attributes['nextText']) ?></span>
+                    <img src="<?= esc_url(get_theme_file_uri('assets/img/arrow-right-dark.svg')) ?>" alt="" width="21" height="21">
+                </button>
             </div>
         </form>
     </div>

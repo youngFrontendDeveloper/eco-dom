@@ -1,15 +1,12 @@
-// Калькулятор. Макет 1400×1001: тёмная панель 1296×763 в точке (52, 166); элементы — в px внутри панели.
+// Калькулятор: высота панели следует за содержимым активного шага.
 .calc {
     &__stage {
-        height: 1128px;
-        // height: 1001px;
+        height: auto;
+        padding: 36px var(--eco-gutter) 64px;
     }
 
     &__eyebrow {
-        position: absolute;
-        top: 36px;
-        left: 0;
-        right: 0;
+        position: static;
         margin: 0;
         font-size: 14px;
         line-height: 1.3;
@@ -17,13 +14,10 @@
     }
 
     &__heading {
-        position: absolute;
-        top: 66px;
-        left: 50%;
-        width: 748px;
-        max-width: 100%;
-        margin: 0;
-        transform: translateX(-50%);
+        position: static;
+        width: auto;
+        max-width: 748px;
+        margin: 6px auto 32px;
         font-size: 24px;
         font-weight: 600;
         line-height: 1.3;
@@ -31,12 +25,12 @@
     }
 
     &__panel {
-        // position: absolute;
-        top: 166px;
-        left: 52px;
-        width: 1296px;
-        height: 830px;
-        // height: 763px;
+        position: relative;
+        width: min(1296px, 100%);
+        height: auto;
+        margin: 0 auto;
+        padding: 40px 28px 28px;
+        box-sizing: border-box;
         border-radius: 12px;
         background: var(--wp--preset--color--dark);
         color: #fff;
@@ -45,9 +39,8 @@
 
     // ── шаг ──
     &__step {
-        // position: absolute;
-        height: 730px;
-        inset: 0;
+        position: static;
+        height: auto;
         min-width: 0;
         margin: 0;
         padding: 0;
@@ -59,12 +52,9 @@
     }
 
     &__question {
-        position: absolute;
-        top: 43px;
-        left: 0;
-        right: 0;
+        position: static;
         width: 100%;
-        margin: 0;
+        margin: 0 0 28px;
         padding: 0;
         font-size: 24px;
         font-weight: 500;
@@ -74,9 +64,7 @@
     }
 
     &__options {
-        position: absolute;
-        left: 20px;
-        right: 20px;
+        position: static;
         display: grid;
     }
 
@@ -95,10 +83,10 @@
     }
 
     // ── раскладки ──
-    &__step--cards3 .calc__options { top: 108px; grid-template-columns: repeat(3, 1fr); gap: 23px 16px; --img-h: 220px; }
-    &__step--tiles .calc__options { top: 145px; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    &__step--cards4 .calc__options { top: 132px; grid-template-columns: repeat(4, 1fr); gap: 24px 16px; --img-h: 200px; }
-    &__step--cards3tall .calc__options { top: 108px; grid-template-columns: repeat(3, 1fr); gap: 28px; --img-h: 503px; }
+    &__step--cards3 .calc__options { grid-template-columns: repeat(3, 1fr); gap: 23px 16px; --img-h: 220px; }
+    &__step--tiles .calc__options { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    &__step--cards4 .calc__options { grid-template-columns: repeat(4, 1fr); gap: 24px 16px; --img-h: 200px; }
+    &__step--cards3tall .calc__options { grid-template-columns: repeat(3, 1fr); gap: 28px; --img-h: 503px; }
 
     // ── карточка с фото ──
     &__card {
@@ -190,43 +178,27 @@
     &__option:hover &__tile { background: rgba(255, 255, 255, 0.1); }
 
     // ── нижняя панель: прогресс, счётчик, кнопки ──
-    // &__bar { display: contents; }
-    &__bar { 
-        // position: absolute;
-        // bottom: 0;
-        display: flex; 
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 12px;
-        width: calc(100% - 46px);
-        height: 100px;
-        padding: 0 23px;
-        // position: absolute;
-        // bottom: 0;
+    &__bar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        margin-top: 32px;
+        padding: 0;
         background-color: var(--wp--preset--color--dark);
     }
     &__bar[hidden] { display: none; }
 
     &__progress {
         position: relative;
-        // position: absolute;
-        left: 0;
-        right: 20px;
-        top: 0;
-        // top: 25px;
+        flex: 0 0 100%;
         height: 2px;
         width: 100%;
         background: rgba(255, 255, 255, 0.25);
     }
-    // &__progress {
-    //     position: absolute;
-    //     left: 20px;
-    //     right: 20px;
-    //     top: 673px;
-    //     height: 2px;
-    //     background: rgba(255, 255, 255, 0.25);
-    // }
 
     &__progress-fill {
         position: absolute;
@@ -250,6 +222,7 @@
         // left: 20px;
         display: flex;
         align-items: baseline;
+        margin-right: auto;
         gap: 4px;
         font-size: 12px;
         line-height: 16px;
@@ -311,7 +284,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 84px;
+        padding-top: 0;
 
         &[hidden] { display: none; }
 
@@ -427,53 +400,21 @@
     .calc__step:not([hidden]) { animation: none; }
 }
 
-// ширина < 1400: абсолютные координаты не помещаются — обычный поток
+// На узких экранах уменьшаем число колонок и отступы.
 @media (max-width: 1400px) {
     .calc {
-        &__stage { height: auto; padding: 36px var(--eco-gutter) 64px; }
-
-        &__eyebrow, &__heading { position: static; width: auto; transform: none; }
-        &__heading { margin: 6px auto 32px; max-width: 748px; }
-
-        &__panel {
-            position: relative;
-            top: auto;
-            left: auto;
-            width: auto;
-            height: auto;
-            padding: 40px 28px 28px;
-        }
-
-        &__step { position: static; }
-        &__question { position: static; margin-bottom: 28px; padding: 0; }
-        &__options { position: static; }
-
         &__step--cards3 .calc__options { grid-template-columns: repeat(2, 1fr); --img-h: 200px; }
         &__step--cards4 .calc__options { grid-template-columns: repeat(2, 1fr); --img-h: 180px; }
         &__step--cards3tall .calc__options { grid-template-columns: repeat(3, 1fr); --img-h: 280px; gap: 16px; }
         &__step--tiles .calc__options { gap: 12px; }
         &__tile { height: 96px; }
 
-        // нижняя панель — обычная flex-строка
-        &__bar {
-            padding: 0 ;
+        &__progress {
+            position: relative;
+            flex: 0 0 100%;
+            width: 100%;
         }
-        &__bar:not([hidden]) {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        &__progress { position: relative; 
-            // flex: 1 0 100%; 
-            left: auto; right: auto; top: auto; }
-        &__counter { position: static; margin-right: auto; }
-        &__next, &__back { position: static; }
         &__next { width: auto; padding: 0 36px; }
-
-        &__step--final, &__step--done { padding-top: 0; }
     }
 }
 
@@ -505,15 +446,66 @@
         &__label { font-size: 14px; }
         &__tile { height: 64px; gap: 12px; padding: 0 14px; }
 
-        &__bar { padding: 0; }
-        &__bar:not([hidden]) { gap: 12px; }
         &__calc__buttons-block {flex-direction: column; gap: 15px;}
-        &__next { flex: 1; padding: 0 20px; }
-        &__back { padding: 0 20px; }
 
         &__messengers { gap: 12px; margin-top: 32px; }
         &__fields { margin-top: 32px; }
         &__field span, &__field input { font-size: 16px; }
         &__submit { width: 100%; padding: 0 24px; }
+    }
+}
+
+@media (max-width: 399px) {
+    .calc {
+        &__bar:not([hidden]) { gap: 8px; }
+        &__next { flex: 0 0 auto; padding: 0 12px; }
+        &__back { padding: 0 12px; }
+    }
+}
+
+// Add calc--fixed-layout to the block's CSS classes to restore the previous fixed-height desktop layout.
+.calc--fixed-layout {
+    .calc__step { height: 730px; }
+
+    @media (min-width: 1401px) {
+        .calc__stage { height: 1128px; padding: 0 var(--eco-gutter); }
+        .calc__eyebrow { position: absolute; top: 36px; left: 0; right: 0; }
+        .calc__heading {
+            position: absolute;
+            top: 66px;
+            left: 50%;
+            width: 748px;
+            max-width: 100%;
+            margin: 0;
+            transform: translateX(-50%);
+        }
+        .calc__panel {
+            width: 1296px;
+            height: 830px;
+            margin: 0;
+            padding: 0;
+        }
+        .calc__question {
+            position: absolute;
+            top: 43px;
+            left: 0;
+            right: 0;
+            margin: 0;
+        }
+        .calc__options { position: absolute; left: 20px; right: 20px; }
+        .calc__step--cards3 .calc__options { top: 108px; }
+        .calc__step--tiles .calc__options { top: 145px; }
+        .calc__step--cards4 .calc__options { top: 132px; }
+        .calc__step--cards3tall .calc__options { top: 108px; }
+        .calc__bar {
+            width: calc(100% - 46px);
+            height: 100px;
+            margin-top: 0;
+            padding: 0 23px;
+        }
+        .calc__step--final,
+        .calc__step--done { padding-top: 84px; }
+        .calc__step--final .calc__question,
+        .calc__step--done .calc__question { position: static; }
     }
 }
